@@ -21,7 +21,9 @@ This phase provides hands-on experience with understanding, investigating, and d
 <h2>Languages and Utilities Used</h2>
 
 - <b>PowerShell</b>
+- <b>Command Prompt (CMD)</b>
 - <b>Active Directory Domain Services (AD DS)</b>
+- <b>Active Directory Users and Computers (ADUC)</b>
 - <b>Windows Event Viewer</b>
 - <b>Kerberos</b>
 - <b>Additional security tools introduced during the attack simulation</b>
@@ -35,7 +37,7 @@ This phase provides hands-on experience with understanding, investigating, and d
 <h2>Program walk-through:</h2>
 
 <p align="center">
-Step 1 – Prepare the Kerberoasting Attack Scenario<br/><br/>
-Begin preparing the controlled Active Directory environment and required service account configuration for the Kerberoasting attack simulation: <br/>
+Step 1 – Verify the Kerberoasting Attack Scenario<br/><br/>
+Reviewed the Active Directory environment created during Phase 1 and verified that the SQL service account remained configured with a registered Service Principal Name (SPN). This configuration establishes the controlled Kerberoasting scenario that will be used to demonstrate how an authenticated domain user can request a Kerberos service ticket associated with a service account: <br/>
 <img src="STEP-1-SCREENSHOT-LINK" height="80%" width="80%" alt="Project Steps"/>
 <br/>
