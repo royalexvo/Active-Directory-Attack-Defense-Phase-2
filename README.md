@@ -43,6 +43,6 @@ This phase provides hands-on experience with understanding, investigating, and d
 
 <p align="center">
 Step 1 – Verify the Kerberoasting Attack Scenario<br/><br/>
-Reviewed the Active Directory environment created during Phase 1 and verified that the SQL service account remained configured with a registered Service Principal Name (SPN). This configuration establishes the controlled Kerberoasting scenario that will be used to demonstrate how an authenticated domain user can request a Kerberos service ticket associated with a service account: <br/>
+Reviewed the SQL service account configuration created during Phase 1 and verified that the svc_sql account remained configured with a non-expiring password and a registered Service Principal Name (SPN). Confirmed the MSSQLSvc/CA-DC-01.Myforest.com:1433 SPN using the setspn command, establishing the service account that will be targeted during the controlled Kerberoasting attack: <br/>
 <img src="STEP-1-SCREENSHOT-LINK" height="80%" width="80%" alt="Project Steps"/>
 <br/>
