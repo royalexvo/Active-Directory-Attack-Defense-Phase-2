@@ -51,7 +51,7 @@ Deployed a Kali Linux virtual machine in Oracle VirtualBox to serve as the dedic
 <img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step2.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 3 – Configure Kali Network & Domain Connectivity<br/><br/>
-Configured the Kali Linux attacker VM to communicate with the Active Directory lab environment and verified network connectivity with the Windows Server 2022 domain controller: <br/>
+Configured the Kali Linux attacker VM to communicate with the Active Directory lab environment using a dedicated internal network. Verified connectivity between Kali Linux (192.168.10.30), Windows Server 2022 (192.168.10.10), and Windows 11 (192.168.10.20) using ICMP ping tests. Additionally, verified DNS resolution for Myforest.com and removed an incorrect DNS record to ensure the domain resolved to the correct domain controller IP address: <br/>
 <img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step3.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 4 – Prepare and Verify Kerberoasting Tools<br/><br/>
