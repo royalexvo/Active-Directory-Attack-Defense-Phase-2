@@ -71,7 +71,7 @@ Used the Kerberos service ticket obtained during the controlled attack to demons
 <img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step7.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 8 – Investigate Kerberoasting Security Events<br/><br/>
-Reviewed Windows Security logs on the domain controller to investigate the Kerberos activity generated during the controlled attack. Analyzed the relevant Kerberos service ticket events and associated account information to identify evidence of the Kerberoasting activity: <br/>
+Reviewed Windows Security logs on the domain controller to investigate the Kerberos activity generated during the controlled attack. Analyzed Event ID 4769 and confirmed that the bmiller account requested a service ticket for svc_sql. Identified the client IP address 192.168.10.30 as the Kali Linux attacker VM, linking the suspicious Kerberos activity to its source.: <br/>
 <img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step8.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 9 – Harden the Service Account<br/><br/>
