@@ -59,7 +59,7 @@ Prepared the Kali Linux attacker system with the tools required for the controll
 <img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step4.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 5 – Enumerate Kerberoastable Service Accounts<br/><br/>
-Used the Kali Linux attacker system to query the Active Directory domain for accounts associated with Service Principal Names (SPNs) and identified the SQL service account configured during Phase 1 as a Kerberoastable service account: <br/>
+Used the Kali Linux attacker system to authenticate to the Active Directory domain using the credentials of bmiller, a low-privileged domain user representing an initially compromised account. Enumerated accounts associated with Service Principal Names (SPNs) and identified the SQL service account (svc_sql) as a Kerberoastable target. This simulated how an attacker with valid domain credentials could discover vulnerable service accounts within an Active Directory environment.: <br/>
 <img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step5.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 6 – Perform the Controlled Kerberoasting Attack<br/><br/>
