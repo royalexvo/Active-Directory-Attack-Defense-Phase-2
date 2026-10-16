@@ -44,11 +44,11 @@ This phase provides hands-on experience with understanding, investigating, and d
 <p align="center">
 Step 1 – Verify the Kerberoasting Attack Scenario<br/><br/>
 Reviewed the SQL service account configuration created during Phase 1 and verified that the svc_sql account remained configured with a non-expiring password and a registered Service Principal Name (SPN). Confirmed the MSSQLSvc/CA-DC-01.Myforest.com:1433 SPN using the setspn command, establishing the service account that will be targeted during the controlled Kerberoasting attack: <br/>
-<img src="STEP-1-SCREENSHOT-LINK" height="80%" width="80%" alt="Project Steps"/>
+<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step1.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 2 – Deploy the Kali Linux Attacker VM<br/><br/>
 Deployed a Kali Linux virtual machine in Oracle VirtualBox to serve as the dedicated attacker system for the controlled Kerberoasting scenario. Installed Kali Linux 2026.2 and verified the operating system, hostname, and x86_64 system architecture from the terminal before integrating the attacker machine with the Active Directory lab environment: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step2.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step%202.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
 <br/>
 Step 3 – Configure Kali Network & Domain Connectivity<br/><br/>
 Configured the Kali Linux attacker VM to communicate with the Active Directory lab environment using a dedicated internal network. Verified connectivity between Kali Linux (192.168.10.30), Windows Server 2022 (192.168.10.10), and Windows 11 (192.168.10.20) using ICMP ping tests. Additionally, verified DNS resolution for Myforest.com and removed an incorrect DNS record to ensure the domain resolved to the correct domain controller IP address: <br/>
