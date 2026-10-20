@@ -1,3 +1,4 @@
+
 <h1>Kerberoasting Attack & Defense</h1>
 
 <h2>Description</h2>
@@ -44,45 +45,45 @@ This phase provides hands-on experience with understanding, investigating, and d
 <p align="center">
 Step 1 – Verify the Kerberoasting Attack Scenario<br/><br/>
 Reviewed the SQL service account configuration created during Phase 1 and verified that the svc_sql account remained configured with a non-expiring password and a registered Service Principal Name (SPN). Confirmed the MSSQLSvc/CA-DC-01.Myforest.com:1433 SPN using the setspn command, establishing the service account that will be targeted during the controlled Kerberoasting attack: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step1.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step1.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step1.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 2 – Deploy the Kali Linux Attacker VM<br/><br/>
 Deployed a Kali Linux virtual machine in Oracle VirtualBox to serve as the dedicated attacker system for the controlled Kerberoasting scenario. Installed Kali Linux 2026.2 and verified the operating system, hostname, and x86_64 system architecture from the terminal before integrating the attacker machine with the Active Directory lab environment: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step%202.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step%202.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step%202.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 3 – Configure Kali Network & Domain Connectivity<br/><br/>
 Configured the Kali Linux attacker VM to communicate with the Active Directory lab environment using a dedicated internal network. Verified connectivity between Kali Linux (192.168.10.30), Windows Server 2022 (192.168.10.10), and Windows 11 (192.168.10.20) using ICMP ping tests. Additionally, verified DNS resolution for Myforest.com and removed an incorrect DNS record to ensure the domain resolved to the correct domain controller IP address: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step3.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step3.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step3.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 4 – Prepare and Verify Kerberoasting Tools<br/><br/>
 Prepared the Kali Linux attacker system with the tools required for the controlled Kerberoasting simulation and verified that the necessary utilities were available before beginning the attack: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step4.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step4.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step4.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 5 – Enumerate Kerberoastable Service Accounts<br/><br/>
 Used the Kali Linux attacker system to authenticate to the Active Directory domain using the credentials of bmiller, a low-privileged domain user representing an initially compromised account. Enumerated accounts associated with Service Principal Names (SPNs) and identified the SQL service account (svc_sql) as a Kerberoastable target. This simulated how an attacker with valid domain credentials could discover vulnerable service accounts within an Active Directory environment: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step5.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step5.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step5.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 6 – Perform the Controlled Kerberoasting Attack<br/><br/>
 Performed a controlled Kerberoasting attack against the lab domain by requesting a Kerberos service ticket for the SQL service account. Captured the resulting service ticket data for offline analysis without modifying or disrupting the service account: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step6.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step6.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step6.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 7 – Demonstrate Offline Password Cracking<br/><br/>
 Used Hashcat and the RockYou wordlist to perform offline password cracking against the Kerberos service ticket obtained during the controlled attack. Successfully recovered the intentionally weak password associated with the svc_sql service account, demonstrating how predictable service account credentials can be compromised through Kerberoasting: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step7.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step7.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step7.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 8 – Investigate Kerberoasting Security Events<br/><br/>
 Reviewed Windows Security logs on the domain controller to investigate the Kerberos activity generated during the controlled attack. Analyzed Event ID 4769 and confirmed that the bmiller account requested a service ticket for svc_sql. Identified the client IP address 192.168.10.30 as the Kali Linux attacker VM, linking the suspicious Kerberos activity to its source: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step8.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step8.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step8.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 9 – Harden the Service Account<br/><br/>
 Implemented defensive changes to reduce the Kerberoasting risk associated with the SQL service account. Replaced the weak password with a stronger 25-character password, configured AES128 and AES256 encryption, restricted account delegation, and ensured Kerberos preauthentication was required. Verified that the service account retained its registered SPN and did not have unnecessary privileged group memberships: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step9.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step9.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step9.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 10 – Retest the Kerberoasting Scenario<br/><br/>
 Repeated the controlled Kerberoasting attack after implementing the defensive changes. Successfully requested another Kerberos service ticket for the SQL service account and attempted offline password cracking using Hashcat and the RockYou wordlist. The attack exhausted the wordlist without recovering the new 25-character password, demonstrating improved resistance to dictionary-based password cracking: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step10.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step10.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step10.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
 Step 11 – Verify Remediation & Final Configuration<br/><br/>
 Performed a final verification of the SQL service account following the Kerberoasting attack and remediation. Used PowerShell to confirm the password reset, AES encryption settings, delegation restrictions, Kerberos preauthentication requirements, registered Service Principal Name (SPN), and group membership. The Password Never Expires setting was intentionally retained to simplify service account management within the lab environment and prevent interruptions during future testing. In a production environment, managed service accounts or a formal password rotation process would be recommended to reduce security risks: <br/>
-<img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step11.png?raw=true" height="80%" width="80%" alt="Project Steps"/>
+<a href="https://raw.githubusercontent.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/main/Step11.png"><img src="https://github.com/royalexvo/Active-Directory-Attack-Defense-Phase-2/blob/main/Step11.png?raw=true" height="80%" width="80%" alt="Project Steps"/></a>
 <br/>
